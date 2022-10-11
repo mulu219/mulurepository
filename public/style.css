@@ -1,7 +1,142 @@
 body{
-  padding-top:80px;
   word-wrap:break-word;
 }
 img{
   height: 200px;
+}
+.home, .login, .signup, .thankyou, .menu, .manager{
+  background-image: url("./100hours\ background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.jumbotron{
+  background-color: rgba(255,255,255,0.1);
+}
+.home h1{
+  color: rgba(226, 88, 34, 0.936);
+
+}
+.home a{
+  width: 100px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border-color: rgba(226,88,34,0.8);
+  
+}
+.signup,.login{
+  color : white;
+}
+.thankyou{
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+color: white;
+}
+.title{
+  font-size: 40px;
+  color: rgba(226,88,34,0.9);
+  margin-bottom: 20px;
+}
+.home{
+  padding-top: 80px;
+}
+.bottom{
+  padding: 55px;
+  border: 1px solid white;
+  display: flex;
+}
+#pictures{
+width: 70%;
+}
+#pictures img{
+border-radius: 50%;
+max-width: 42%;
+margin: 5px;
+}
+.right{
+  width: 29%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid white;
+}
+.menu li{
+  margin: 0;
+  width: auto;
+}
+.menu p{
+  width: 100%;
+}
+.manager{
+  background-image: url("./100hours\ background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+  
+}
+.manager ul{
+  width: 80%;
+  height: 70%;
+  color: black;
+  overflow: scroll;
+  position: fixed;
+
+  
+}
+  li{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.459);
+  margin: 10px;
+  align-items: center;
+  font-weight: 500;
+  color: whitesmoke;
+
+ 
+}
+li:hover{
+  background-color: rgba(97, 216, 81, 0.692);
+}
+  ul p{
+  width: 300px;
+  text-transform: capitalize;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.listTop{
+  position: absolute;
+  top: 0;
+  width: 80%;
+  display: flex;
+  margin-top: 75px;
+  justify-content: space-around;
+  border-bottom: 2px solid rgba(255,255,255, 0.5);
+}
+.listTop p{
+  width: 300px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+#searchButton, #orderButton, #clearMenu{
+  font-size: medium;
+  font-weight: 400;
+  width: 75px;
+  border: none;
+  height: 25px;
+  margin: 2px;
+  font-weight: bold;
 }

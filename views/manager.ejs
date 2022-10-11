@@ -1,11 +1,36 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>OpenBar Site</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>manager page
+<body class="manager">
+    <div class="listTop">
+        <p>Order Number</p>
+        <p>Customer name</p>
+        <p>Items</p>
+
+    </div>
+    <ul>
+        
+        <% order.forEach(item =>{ %>
+            <li onclick="completeOrder(this)">
+                <p>
+                    <%= item.orderNumber%>
+                </p>
+
+                <p>
+                    <%= item.name%>
+                </p>
+                <p>
+                    <%= item.menu%>
+                </p>
+            </li>
+        <%})%> 
+    </ul>
+
+    <script src="main.js"></script>
 </body>
 </html>

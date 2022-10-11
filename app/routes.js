@@ -6,13 +6,28 @@ module.exports = function(app, passport, db) {
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
+    app.get('/thankYou', function(req, res) {
+      res.render('thankyou.ejs');
+  });
+  app.get('/manager', function(req, res) {
+    db.collection('orders').find().toArray((err, result) => {
+      if (err) return console.log(err)
+      res.render('manager.ejs', {
+        user : req.user,
+        order: result
+        
+      })
+      console.log(result)
+    });
+});
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
       console.log(req.user)
      if(req.user.local.manager == true) {
-       res.render('manager.ejs')
+       res.redirect('/manager')
       }
+      
       else {
         db.collection('messages').find().toArray((err, result) => {
           if (err) return console.log(err)
@@ -40,7 +55,20 @@ module.exports = function(app, passport, db) {
         res.redirect('/profile')
       })
     })
-
+    app.post('/order', (req, res) => {
+      db.collection('orders').save({name: req.body.name, orderNumber: req.body.orderNumber, menu: req.body.menu }, (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.json({redirectRoute:"/thankYou"})
+      })
+    })
+    app.delete('/order', (req, res) => {
+      console.log(req.body.orderNumber)
+      db.collection('orders').findOneAndDelete({orderNumber: req.body.orderNumber}, (err, result) => {
+        if (err) return res.send(500, err)
+        res.json({redirectRoute:"/manager"})
+      })
+    })
     app.put('/messages', (req, res) => {
       db.collection('messages')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
